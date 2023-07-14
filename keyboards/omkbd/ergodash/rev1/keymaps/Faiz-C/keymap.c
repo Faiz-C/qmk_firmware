@@ -6,7 +6,7 @@ enum layer_names {
   _NUMBERS,
   _UTILITY,
   _GAMING,
-  _NUMPAD
+  _TOP_ROW_NUMS
 };
 
 enum custom_keycodes {
@@ -15,39 +15,39 @@ enum custom_keycodes {
   NUMBERS,
   UTILITY,
   GAMING,
-  NUMPAD
+  TOP_ROW_NUMS
 };
 
-#define KC_NPAD TG(_NUMPAD)
-#define KC_UTIL MO(_UTILITY)
-#define KC_RASE MO(_RAISE)
-#define KC_QSYM MO(_QUICK_SYMBOLS)
+#define KC_NLCK TG(_NUMBERS)
 #define KC_NUMS MO(_NUMBERS)
+#define KC_UTIL MO(_UTILITY)
+#define KC_QSYM MO(_QUICK_SYMBOLS)
 #define KC_GAME TG(_GAMING)
+#define KC_NTOP TG(_TOP_ROW_NUMS)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_MAIN] = LAYOUT(
-    KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_NPAD,                         KC_NPAD, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL,
+    KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_NLCK,                         KC_NLCK, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_GAME,                         KC_GAME, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
-    KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    XXXXXXX,                         XXXXXXX, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+    KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    XXXXXXX,                         KC_NTOP, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_UTIL,                         KC_UTIL, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
     KC_LCTL, KC_LALT, KC_LGUI, KC_LGUI,          KC_LALT, KC_SPC, KC_NUMS,        KC_QSYM, KC_BSPC, KC_ENT,           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
   ),
 
   [_QUICK_SYMBOLS] = LAYOUT(
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
-    _______, _______, _______, KC_GRV,  KC_EXLM, KC_AT,   _______,                         _______, KC_MINS, KC_EQL,  KC_ASTR, _______, _______, _______,
-    _______, _______, _______, KC_RPRN, KC_LPRN, KC_AMPR, _______,                         _______, KC_DLR,  KC_LBRC, KC_RBRC, _______, _______, _______,
+    _______, _______, _______, KC_GRV,  KC_EXLM, KC_AT,   XXXXXXX,                         XXXXXXX, KC_EQL,  KC_MINS, KC_ASTR, _______, _______, _______,
+    _______, _______, _______, KC_RPRN, KC_LPRN, KC_AMPR, XXXXXXX,                         XXXXXXX, KC_DLR,  KC_LBRC, KC_RBRC, _______, _______, _______,
     _______, _______, _______, _______, KC_PERC, KC_PIPE, _______,                         _______, KC_CIRC, KC_HASH, _______, _______, _______, _______,
     _______, _______, _______, _______,          _______, _______, _______,       _______, _______, _______,          _______, _______, _______, _______
   ),
 
   [_NUMBERS] = LAYOUT(
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
-    _______, _______, _______, _______, _______, _______, _______,                         _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    _______,                         _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
-    _______, _______, _______, _______, _______, _______, _______,                         _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______,          _______, _______, _______,       _______, _______, _______,          _______, _______, _______, _______
+    _______, _______, _______, _______, _______, _______, _______,                         _______, _______, KC_KP_7, KC_KP_8, KC_KP_9, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,                         _______, _______, KC_KP_4, KC_KP_5, KC_KP_6, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,                         _______, _______, KC_KP_1, KC_KP_2, KC_KP_3, _______, _______,
+    _______, _______, _______, _______,          _______, _______, _______,       _______, _______, _______,          KC_KP_0, KC_KP_0, _______, _______
   ),
 
   [_UTILITY] = LAYOUT(
@@ -60,19 +60,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_GAMING] = LAYOUT(
     _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    XXXXXXX,                         XXXXXXX, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
-    _______, _______, _______, _______, _______, _______, _______,                         _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______,                         _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, XXXXXXX,                         _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, XXXXXXX,                         XXXXXXX, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______,          _______, _______, XXXXXXX,       XXXXXXX, _______, _______,          _______, _______, _______, _______
+    _______, _______, _______, _______, _______, _______, XXXXXXX,                         XXXXXXX, _______, _______, _______, _______, _______, _______,
+    _______, _______, XXXXXXX, KC_LCTL,          _______, _______, XXXXXXX,       XXXXXXX, _______, _______,          _______, _______, _______, _______
   ),
 
-  [_NUMPAD] = LAYOUT(
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_NPAD,                         KC_NPAD, XXXXXXX, XXXXXXX, KC_NUM,  KC_PSLS, KC_PAST, KC_PMNS,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,                         _______, XXXXXXX, XXXXXXX, KC_KP_7, KC_KP_8, KC_KP_9, KC_PPLS,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,                         _______, XXXXXXX, XXXXXXX, KC_KP_4, KC_KP_5, KC_KP_6, KC_PPLS,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,                         _______, XXXXXXX, XXXXXXX, KC_KP_1, KC_KP_2, KC_KP_3, KC_PENT,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          _______, _______, _______,       _______, _______, _______,          KC_KP_0, KC_KP_0, KC_PDOT, KC_PENT
-  ),
+  [_TOP_ROW_NUMS] = LAYOUT(
+    _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    _______,                         _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
+    _______, _______, _______, _______, _______, _______, _______,                         _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,                         _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,                         _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______,          _______, _______, _______,       _______, _______, _______,          _______, _______, _______, _______
+  )
 };
 
 void persistent_default_layer_set(uint16_t default_layer) {
@@ -120,11 +120,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-    case NUMPAD:
+    case TOP_ROW_NUMS:
       if (record->event.pressed) {
-        layer_on(_NUMPAD);
+        layer_on(_TOP_ROW_NUMS);
       } else {
-        layer_off(_NUMPAD);
+        layer_off(_TOP_ROW_NUMS);
       }
       return false;
       break;
