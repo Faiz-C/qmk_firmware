@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QUICK_SYMBOLS] = LAYOUT(
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
     _______, _______, _______, KC_GRV,  KC_EXLM, KC_AT,   XXXXXXX,                         XXXXXXX, KC_EQL,  KC_MINS, KC_ASTR, _______, _______, _______,
-    _______, _______, _______, KC_RPRN, KC_LPRN, KC_AMPR, XXXXXXX,                         XXXXXXX, KC_DLR,  KC_LBRC, KC_RBRC, _______, _______, _______,
+    _______, _______, _______, KC_LPRN, KC_RPRN, KC_AMPR, XXXXXXX,                         XXXXXXX, KC_DLR,  KC_LBRC, KC_RBRC, _______, _______, _______,
     _______, _______, _______, _______, KC_PERC, KC_PIPE, _______,                         _______, KC_CIRC, KC_HASH, _______, _______, _______, _______,
     _______, _______, _______, _______,          _______, _______, _______,       _______, _______, _______,          _______, _______, _______, _______
   ),
